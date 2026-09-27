@@ -1,30 +1,51 @@
-# Efficient and Effective Self-Supervised Learning
+ [[Poster](https://sslneurips21.github.io/files/Poster/Paper_id_25.pdf)][[Paper](https://sslneurips21.github.io/files/CameraReady/SSLW_upload.pdf)].
+Markdown
+# Self-Supervised Visual Representation Learning Framework
 
-This repository contains the implementation of our paper titled "Towards Efficient and Effective Self-Supervised Learning of Visual Representations", accepted at [ECCV'22](https://eccv2022.ecva.net/) [[Poster](https://drive.google.com/file/d/1tW40PWQNcMx1W3JSyghD0-ym8BrS_iDP/view)][[Paper](https://arxiv.org/abs/2210.09866)][[Video](https://drive.google.com/file/d/1c7348_9Le0ZfLaVMjeh2UeyH9OyeVqgl/view)]. A preliminary version of our work was presented at the NeurIPS'21 Workshop, [Self-supervised learning, Theory and Practice](https://sslneurips21.github.io/) [[Poster](https://sslneurips21.github.io/files/Poster/Paper_id_25.pdf)][[Paper](https://sslneurips21.github.io/files/CameraReady/SSLW_upload.pdf)].
+A PyTorch-based implementation for training and evaluating self-supervised visual representation models using combination techniques (such as clustering-based objectives integrated with spatial transformation tasks).
 
-![plot](./fig.jpg)
+---
 
- # Requirements
-* Python 3.8.8
-* PyTorch 1.7.1
-* tqdm
+## 📂 Project Structure
 
-# Training and Evaluation
-Please check the training scripts provided under the [scripts](https://github.com/val-iisc/EffSSL/tree/main/scripts) folder to train the base model (SwAV) and ours (SwAV+Rotnet), followed by linear evaluation.
+```text
+├── scripts/           # Execution scripts for training and downstream evaluation
+├── src/               # Core codebase (models, losses, and custom data augmentations)
+├── requirements.txt   # Project dependencies
+└── README.md          # Project documentation
+⚙️ Requirements & Installation
+This project requires Python and PyTorch. Follow the steps below to set up your environment:
 
-# Citation
-If you use our code in your research, please cite the following:
-```
-@inproceedings{
-EffSSL22,
-title={Towards Efficient and Effective Self-Supervised Learning of Visual Representations},
-author={Sravanti Addepalli and Kaushal Santosh Bhogale and Priyam Dey and Venkatesh Babu Radhakrishnan},
-booktitle={European Conference on Computer Vision 2022},
-year={2022}
-}
-```
+1. Clone the Repository
+Bash
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+2. Create a Virtual Environment
+Bash
+conda create -n ssl-env python=3.8.8
+conda activate ssl-env
+3. Install Dependencies
+Install the required packages matching your local CUDA configuration:
 
-# Licence
-This source code is released under the MIT license, included [here](https://github.com/val-iisc/EffSSL/blob/main/LICENSE).
+Bash
+pip install -r requirements.txt
+(Note: Ensure you install the appropriate PyTorch version corresponding to your GPU hardware/CUDA version.)
 
-This project also borrows code from [SwAV official repository](https://github.com/facebookresearch/swav), also [MIT Licensed](https://github.com/facebookresearch/swav/blob/main/LICENSE).
+🏃‍♂️ Usage & Workflow
+All execution pipelines are managed via shell scripts located in the scripts/ directory.
+
+Step 1: Model Pre-training
+To run pre-training configurations (including baseline setups and auxiliary task combinations like SwAV + RotNet):
+
+Bash
+cd scripts/
+bash train_swav_rotnet.sh
+Step 2: Linear Evaluation
+To evaluate the quality of the learned representation using a frozen backbone:
+
+Bash
+bash linear_eval.sh
+📄 License
+Distributed under the MIT License. See LICENSE for more information. Portions of this codebase adapt components from open-source vision repositories.
+
+
