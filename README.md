@@ -1,5 +1,20 @@
- [[Poster](https://sslneurips21.github.io/files/Poster/Paper_id_25.pdf)][[Paper](https://sslneurips21.github.io/files/CameraReady/SSLW_upload.pdf)].
-Markdown
+
+This project is a Self-Supervised Learning (SSL) computer vision framework built in PyTorch.
+
+What is Self-Supervised Learning?
+Self-supervised learning is a type of machine learning where a model learns powerful visual features from unlabelled images (without needing humans to manually tag or label thousands of pictures). It does this by creating clever "puzzles" or tasks for the network to solve on its own.
+
+What this specific project does:
+Pre-trains Visual Backbones: It takes a neural network architecture and trains it on raw images by combining two powerful self-supervised strategies:
+
+Clustering-based objectives (similar to SwAV): Grouping similar image features together without labels.
+
+Spatial transformation tasks (like RotNet): Forcing the network to predict things like the rotation angle of an image, which teaches it to understand shapes, structures, and spatial orientation.
+
+Evaluates Representations: Once the model finishes pre-training, it includes evaluation pipelines (like linear evaluation) to test how well the learned features can be used for downstream tasks (like image classification) by freezing the main network and training a simple classifier on top.
+
+In short, it's a complete pipeline to train robust computer vision models from scratch using unlabelled data and test how smart those models have become.
+
 # Self-Supervised Visual Representation Learning Framework
 
 A PyTorch-based implementation for training and evaluating self-supervised visual representation models using combination techniques (such as clustering-based objectives integrated with spatial transformation tasks).
